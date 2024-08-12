@@ -2,38 +2,19 @@
 import axios from "axios";
 import { UPDATE_BANNER } from "dashboard/constants/url";
 import Image from "next/image";
-import { MenuItem, Menu } from "@mui/material";
+import { MenuItem, Menu, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Banner from "dashboard/components/Banner";
 import "./style.css";
+import DashboardContent from "dashboard/components/DashboardContent";
+
+export   const defaultValues = {
+  userId: "f24e328d-e096-4248-8a12-c78217227839",
+};
 
 const Dashboard = () => {
-  const defaultValues = {
-    userId: "f24e328d-e096-4248-8a12-c78217227839",
-  };
-  const updatingBannerDetails = async () => {
-    try {
-      const bannerUpdation = await axios.post(
-        UPDATE_BANNER,
-
-        {
-          userId: defaultValues.userId,
-          description: "Hey checking",
-          timer: "5",
-          visible: 0,
-          link: "https://recon.triffy.in",
-        }
-      );
-      if (bannerUpdation) {
-        console.log(bannerUpdation.data);
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -48,11 +29,12 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
+    <div style={{ height: "100vh" }}>
       <div className="navbar">
         <div className="logo-circle">
           <Image alt="" src={"/tuf_logo.jpg"} width={60} height={40} />
         </div>
+        <h1>Banner Controllables</h1>
         <div className="menu">
           <button onClick={handleClick}>
             <MenuIcon fontSize="large" />
@@ -71,6 +53,7 @@ const Dashboard = () => {
           </Menu>
         </div>
       </div>
+      <DashboardContent />
     </div>
   );
 };

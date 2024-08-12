@@ -24,6 +24,26 @@
     justify-content: space-between;
 }
 
+@media (max-width: 1024px) {
+    .banner-text {
+        padding-top: 300px;
+    }
+}
+
+/* For mobile phones (480px and up) */
+@media (max-width: 768px) {
+    .banner-text {
+        padding-top: 400px;
+    }
+}
+
+/* For very small mobile phones (320px and up) */
+@media (max-width: 480px) {
+    .banner-text {
+        padding-top: 350px;
+    }
+}
+
 .banner-text h2{
     /* letter-spacing: 1px; */
     font-weight: bold;
@@ -48,5 +68,10 @@
     color: rgba(255, 230, 0);
     border-radius: 20px;
     border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
     cursor: pointer;
 }
