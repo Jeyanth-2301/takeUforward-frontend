@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { BANNER_DETAILS, UPDATE_BANNER } from "dashboard/constants/url";
-import { defaultValues } from "dashboard/app/dashboard/page";
 
 const DashboardContent = () => {
   const [bannerInfo, setBannerInfo] = useState({
@@ -24,6 +23,8 @@ const DashboardContent = () => {
     description: "",
     link: "",
   });
+
+  const DefaultuserId = "f24e328d-e096-4248-8a12-c78217227839";  
 
   const [open, setOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
@@ -101,7 +102,7 @@ const DashboardContent = () => {
         UPDATE_BANNER,
 
         {
-          userId: defaultValues.userId,
+          userId: DefaultuserId,
           description: description,
           timer: numberValue,
           visible: switchChecked,

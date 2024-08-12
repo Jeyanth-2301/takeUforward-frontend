@@ -10,10 +10,6 @@ import Banner from "dashboard/components/Banner";
 import "./style.css";
 import DashboardContent from "dashboard/components/DashboardContent";
 
-export   const defaultValues = {
-  userId: "f24e328d-e096-4248-8a12-c78217227839",
-};
-
 const Dashboard = () => {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

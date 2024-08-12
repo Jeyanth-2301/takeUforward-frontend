@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Amaranth } from "next/font/google";
 import "./globals.css";
 
-export const amarnath = Amaranth({
+const amarnath = Amaranth({
   weight: ["400", "700"],
   subsets: ["latin"]
 });
