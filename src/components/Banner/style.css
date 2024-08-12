@@ -16,7 +16,7 @@
 }
 
 .banner-text {
-    padding-top: 500px;
+    padding-top: 342px;
     margin-left: 50px;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@
 /* For mobile phones (480px and up) */
 @media (max-width: 768px) {
     .banner-text {
-        padding-top: 400px;
+        padding-top: 300px;
     }
 }
 
@@ -74,4 +74,13 @@
     align-items: center;
     flex-wrap: nowrap;
     cursor: pointer;
+}
+
+.hidden-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 2rem;
 }

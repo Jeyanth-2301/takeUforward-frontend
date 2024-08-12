@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import "./style.css";
 import { Typography, LinearProgress } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import Timer from "../Timer";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const Banner = () => {
   const router = useRouter();
@@ -40,23 +42,40 @@ const Banner = () => {
     bannerDetailsFetch();
   }, []);
 
+  const handleTimerComplete = () => {
+    setBannerInfo((prev: any) => ({
+      ...prev,
+      visibility: 0
+    }));
+  };
+
   return (
     <>
       {loading ? (
-        <LinearProgress color="warning"/>
+        <LinearProgress color="warning" />
       ) : (
         <div className="container">
-          <div className="banner">
-            <div className="banner-text">
-              <button id="btn" onClick={() => router.push(bannerInfo.link)}>
-                <Typography sx={{ fontFamily: "Inter, sans-serif" }}>
-                  Navigate
-                </Typography>
-                <ArrowRightIcon />
-              </button>
-              <h2>{bannerInfo?.description}</h2>
+          {bannerInfo.visibility == 1 ? (
+            <div className="banner">
+              <div className="banner-text">
+                <button id="btn" onClick={() => router.push(bannerInfo.link)}>
+                  <Typography sx={{ fontFamily: "Inter, sans-serif" }}>
+                    Navigate
+                  </Typography>
+                  <ArrowRightIcon />
+                </button>
+                <Timer initialMinutes={3} onComplete={handleTimerComplete} />
+                <h2>{bannerInfo?.description}</h2>
+              </div>
             </div>
-          </div>
+          ) : bannerInfo.visibility == null ? (
+            <LinearProgress color="warning" />
+          ) : (
+            <div className="hidden-banner">
+              <VisibilityOffIcon fontSize="large" sx={{ fontSize: "400px" }}/>
+              <Typography>Banner visibility is OFF</Typography>
+            </div>
+          )}
         </div>
       )}
     </>
