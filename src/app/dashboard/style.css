@@ -1,0 +1,17 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.logo-circle {
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.menu {
+    cursor: pointer;
+}
